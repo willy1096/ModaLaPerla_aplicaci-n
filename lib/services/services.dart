@@ -1,0 +1,1 @@
+// Esta carpeta es para operaciones de backend, como conectarse a Firestore o invocar llamadas HTTP, etc.
