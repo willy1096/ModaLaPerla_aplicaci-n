@@ -21,6 +21,8 @@ import 'package:flutter/material.dart';
   Color colorinfo = Color(0xff5edfff); 
   Color colorinfoblue = Color(0xff3e64ff); 
   Color colorRed = Color(0xffBE1E2D); 
+  Color colorinputs = Color.fromARGB(255,248, 248, 248);
+  Color colorBorder = Color.fromARGB(255,239, 239, 244);
   
   //Texto  
   SizedBox separadorContainer = SizedBox(height: 15);
@@ -45,3 +47,18 @@ import 'package:flutter/material.dart';
   TextStyle labelStyle = TextStyle(fontFamily:'DM_Sans',color: Color(0xff7B05AD),fontSize: 20,fontWeight: FontWeight.bold);
   TextStyle labelStylePrefix = TextStyle(fontFamily:'DM_Sans',color:Color(0xffBFBA0C),fontSize: 17,fontWeight: FontWeight.bold);
   TextStyle hintStyle =  TextStyle(fontFamily:'DM_Sans',color:Color(0xff636E7E),fontWeight:FontWeight.bold);
+
+
+  
+ BoxShadow boxShadowCards = BoxShadow(
+  color: Colors.grey.withOpacity(0.2),
+  spreadRadius: 1,
+  blurRadius: 5,
+  offset: Offset(0, 3), // changes position of shadow
+);
+BoxShadow boxShadowCardsopacity =  BoxShadow(
+  color: Colors.grey.withOpacity(0.1),
+  spreadRadius: 1,
+  blurRadius: 1,
+  offset: Offset(0, 1), // changes position of shadow
+);

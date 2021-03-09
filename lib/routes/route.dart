@@ -4,6 +4,10 @@ import 'package:laperla/screens/Card/card_list.dart';
 import 'package:laperla/screens/Login/login.dart';
 import 'package:laperla/screens/Login/register.dart';
 import 'package:laperla/screens/Menu/Catalogue/catalogue.dart';
+import 'package:laperla/screens/Menu/Favorite/menu_favorite.dart';
+import 'package:laperla/screens/Menu/Pay/pay_add_card.dart';
+import 'package:laperla/screens/Menu/Pay/pay_checkout.dart';
+import 'package:laperla/screens/Menu/Pay/pay_oder.dart';
 import 'package:laperla/screens/Menu/Settings_Count/settings.dart';
 import 'package:laperla/screens/Product/demo.dart';
 import 'package:laperla/screens/Product/product.dart';
@@ -36,6 +40,10 @@ final routes = <String, WidgetBuilder> {
   'cardList' : (context) => CardList(),
   //MENU
   'menuSettings' : (context) => MenuSettings(), 
+  'menuFavorite' : (_) => MenuFavorite(),
+  'payOrder' : (_) => PayOrder(),
+  'payCheckout' : (_) => PayCheckout(),
+  'payFormAddCard' : (_) => PayFormAddCard(),
 
   
 

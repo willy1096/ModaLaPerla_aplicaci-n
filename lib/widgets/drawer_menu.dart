@@ -100,17 +100,17 @@ class _MyEndDrawerMenuState extends State<MyEndDrawerMenu> {
                               _gestureDetectorRoute(
                                 icon:Icons.favorite,
                                 title: 'Favoritos',
-                                onTapRoute: ()=> Navigator.pushNamed(context, 'login')
+                                onTapRoute: ()=> Navigator.pushNamed(context, 'menuFavorite')
                               ),
                               _gestureDetectorRoute(
                                 icon:Icons.notifications_active,
                                 title: 'Notificaciones',
-                                onTapRoute: ()=> Navigator.pushNamed(context, 'login')
+                                onTapRoute: ()=> Navigator.pushNamed(context, 'payOrder')
                               ),
                               _gestureDetectorRoute(
                                 icon:Icons.shopping_cart,
                                 title: 'Mi carrito',
-                                onTapRoute: ()=> Navigator.pushNamed(context, 'login')
+                                onTapRoute: ()=> Navigator.pushNamed(context, 'payOrder')
                               ),
                               _gestureDetectorRoute(
                                 icon:Icons.account_box,
