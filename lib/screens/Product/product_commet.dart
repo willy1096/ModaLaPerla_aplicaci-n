@@ -23,7 +23,7 @@ class _ProductCommentState extends State<ProductComment> {
       body: Container(
         color: Colors.white,
         child: ListView.builder(
-          itemCount: 220,
+          // itemCount: 220,
           itemBuilder: (BuildContext context, int index){
             return ListComment(
               title: 'Super recomendado',

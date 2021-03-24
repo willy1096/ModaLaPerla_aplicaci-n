@@ -5,6 +5,8 @@ import 'package:laperla/screens/Login/login.dart';
 import 'package:laperla/screens/Login/register.dart';
 import 'package:laperla/screens/Menu/Catalogue/catalogue.dart';
 import 'package:laperla/screens/Menu/Favorite/menu_favorite.dart';
+import 'package:laperla/screens/Menu/Notification/menu_notification.dart';
+import 'package:laperla/screens/Menu/Pay/pay_add_address.dart';
 import 'package:laperla/screens/Menu/Pay/pay_add_card.dart';
 import 'package:laperla/screens/Menu/Pay/pay_checkout.dart';
 import 'package:laperla/screens/Menu/Pay/pay_oder.dart';
@@ -44,6 +46,8 @@ final routes = <String, WidgetBuilder> {
   'payOrder' : (_) => PayOrder(),
   'payCheckout' : (_) => PayCheckout(),
   'payFormAddCard' : (_) => PayFormAddCard(),
+  'payFormAddAddress' : (_) => PayFormAddAddress(),
+  'menuNotification' : (_) => MenuNotification(),
 
   
 

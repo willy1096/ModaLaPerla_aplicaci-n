@@ -135,7 +135,7 @@ class _WidgetCardProductDetailState extends State<WidgetCardProductDetail> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     MaterialButton(
-                      color: styleSheet.colorGreen,
+                      color: styleSheet.colorAmarillo,
                       minWidth: 0,
                       padding: EdgeInsets.only(left:50,right:50),
                       height: 30,

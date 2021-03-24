@@ -6,12 +6,12 @@ import 'package:laperla/widgets/menu/favorite/card_product_menu.dart';
 import 'package:laperla/widgets/menu/favorite/header_menu.dart';
 import 'package:laperla/utilities/utils.dart' as styleSheet;
 
-class MenuFavorite extends StatefulWidget {
+class MenuNotification extends StatefulWidget {
   @override
-  _MenuFavoriteState createState() => _MenuFavoriteState();
+  _MenuNotificationState createState() => _MenuNotificationState();
 }
 
-class _MenuFavoriteState extends State<MenuFavorite> {
+class _MenuNotificationState extends State<MenuNotification> {
   @override
   void initState() {
     getChangeStatusTransparent();
@@ -52,7 +52,7 @@ class _MenuFavoriteState extends State<MenuFavorite> {
                       StretchMode.fadeTitle,
                     ],
                     centerTitle: true,
-                    title: Text('Favoritos',style: TextStyle(color: Colors.white,fontFamily: 'Roboto',fontSize: 16,fontWeight: FontWeight.bold),),
+                    title: Text('Notificaciones',style: TextStyle(color: Colors.white,fontFamily: 'Roboto',fontSize: 16,fontWeight: FontWeight.bold),),
                     background: Stack(
                       fit: StackFit.expand,
                       children: [
@@ -67,17 +67,19 @@ class _MenuFavoriteState extends State<MenuFavorite> {
                  delegate: SliverChildListDelegate([
                   SingleChildScrollView(
                     child: ListView.builder(
-                      padding: EdgeInsets.only(top:5),
+                      padding: EdgeInsets.all(0),
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: 10,
                       itemBuilder:(context,int i){
                         return FadeInLeft(
                           child: CardMenuProduct(
-                            marginbutton: 5.0,
-                            radiusTop: 20.0,
-                            radiusbutton: 20.0,
+                            marginbutton: 0.0,
+                            radiusTop: 0.0,
+                            radiusbutton: 0.0,
                             ultimoitem: 10,
+                            marginleft: 0.0,
+                            marginright: 0.0,
                             index: i,
                           )
                         );

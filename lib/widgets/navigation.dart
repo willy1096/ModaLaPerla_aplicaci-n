@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:laperla/screens/Card/card_list.dart';
 // import 'package:laperla/screens/Catalogue/catalogue.dart';
 import 'package:laperla/screens/Product/product.dart';
-import 'package:laperla/utilities/setStatusBar.dart';
+// import 'package:laperla/utilities/setStatusBar.dart';
 import 'package:laperla/utilities/utils.dart' as styleSheet;
 
 class NavigatorHome extends StatefulWidget {
@@ -35,22 +36,20 @@ class _HomeState extends State<NavigatorHome> {
         child:GestureDetector(
           onTap:(){
             Navigator.pushNamed(context, 'productList');
-            getChangeStatusWhite();
           },
-          child:Icon(Icons.shopping_basket)
-          //  SvgPicture.asset(
-          //   'assets/wandIcon.svg',
-          //   width:20,
-          //   color: Colors.white,
-          // ),
+          child:SvgPicture.asset(
+            'assets/wandIcon.svg',
+            width:20,
+            color: Colors.white,
+          ),
         ), 
         // Icon(Icons.add),
         onPressed: () {},
-        backgroundColor:styleSheet.colorGreen ,
+        backgroundColor:styleSheet.colorAmarillo ,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
+        
         shape: CircularNotchedRectangle(),
         notchMargin: 10,
         child: Container(
@@ -73,8 +72,8 @@ class _HomeState extends State<NavigatorHome> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Icon(Icons.home,color: currentTab == 0 ? styleSheet.colorGreen : styleSheet.colorGrey,size: 27),
-                          Text('Inicio',style: TextStyle(color: currentTab == 0 ? styleSheet.colorGreen : styleSheet.colorGrey,fontFamily: 'Roboto',fontSize: 12),
+                          Icon(Icons.home,color: currentTab == 0 ? styleSheet.colorAmarillo : styleSheet.colorGrey,size: 27),
+                          Text('Inicio',style: TextStyle(color: currentTab == 0 ? styleSheet.colorAmarillo : styleSheet.colorGrey,fontFamily: 'Roboto',fontSize: 12),
                           ),
                         ],
                       ),
@@ -92,8 +91,8 @@ class _HomeState extends State<NavigatorHome> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(Icons.shopping_cart,color: currentTab == 1 ? styleSheet.colorGreen : styleSheet.colorGrey,size: 27,),
-                        Text('Productos',style: TextStyle(color: currentTab == 1 ? styleSheet.colorGreen : styleSheet.colorGrey,fontFamily: 'Roboto',fontSize: 12),
+                        Icon(Icons.shopping_cart,color: currentTab == 1 ? styleSheet.colorAmarillo : styleSheet.colorGrey,size: 27,),
+                        Text('Productos',style: TextStyle(color: currentTab == 1 ? styleSheet.colorAmarillo : styleSheet.colorGrey,fontFamily: 'Roboto',fontSize: 12),
                         ),
                       ],
                     ),

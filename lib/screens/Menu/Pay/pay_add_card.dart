@@ -78,7 +78,7 @@ class _PayFormAddCardState extends State<PayFormAddCard> {
         child: Container(
           // height: double.infinity,
           child: Form(
-            autovalidate: true,
+            autovalidateMode: AutovalidateMode.always,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -235,10 +235,12 @@ class _PayFormAddCardState extends State<PayFormAddCard> {
             style: BorderStyle.none
           ),
         ),
-        enabledBorder: UnderlineInputBorder(      
+        enabledBorder: UnderlineInputBorder(    
+          borderRadius: BorderRadius.circular(10.0),  
           borderSide: BorderSide(color: styleSheet.colorBorder),   
         ),  
         focusedBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(color: styleSheet.colorBorder),
         ),
         

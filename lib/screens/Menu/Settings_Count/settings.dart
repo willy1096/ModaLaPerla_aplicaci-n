@@ -15,7 +15,7 @@ class _MenuSettingsState extends State<MenuSettings> {
         backgroundColor: Colors.white,
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: styleSheet.colorDark),
-        title: Text('Configuración',style:TextStyle(color:styleSheet.colorGreen)),
+        title: Text('Configuración',style:TextStyle(color:styleSheet.colorAmarillo)),
         centerTitle: false,
         elevation: 0,
       ),

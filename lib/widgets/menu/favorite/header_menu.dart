@@ -2,28 +2,37 @@ import 'package:flutter/material.dart';
 
 class  HeaderMenu extends StatelessWidget {
   final String titleHeader;
+  final double heightCard;
   HeaderMenu({
-    @required this.titleHeader
+    @required this.titleHeader,
+    this.heightCard = 250.0,
   });
   @override
   Widget build(BuildContext context) {
     return  Stack(
       children: <Widget>[
         Container(
-          height: 250,
+          height: this.heightCard,
           width: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
+              begin: Alignment.bottomRight,
+              end: Alignment.topLeft,
               colors:[
-                Color.fromARGB(255,123, 10, 173),
-                Color.fromARGB(255, 193, 188, 59),
+                Color.fromRGBO(85,35,99,150),
+                Color.fromRGBO(183,136,188,100),
+                Color.fromRGBO(243,219,195,100),
+                
               ]
             ),
           ),
           child: Center(
-            child: Text('$titleHeader',style: TextStyle(color:Colors.white,fontFamily:'Roboto',fontWeight:FontWeight.w700,fontSize: 20),),
+            child: Image.asset(
+                  'assets/Logo_La_Perla-interna.png',
+                  width: 100,
+                )
+           
+            // Text('$titleHeader',style: TextStyle(color:Colors.white,fontFamily:'Roboto',fontWeight:FontWeight.w700,fontSize: 20),),
           ),
         ),
         
@@ -32,7 +41,7 @@ class  HeaderMenu extends StatelessWidget {
           topPosition: 90.0,
           rightPosition:null,
           bottomPosition: null,
-          colorCicle: Color.fromARGB(127,191, 186, 56),
+          colorCicle: Color.fromRGBO(243,219, 195, 61),
           hightCicle: 100.0,
           widhtCircle: 100.0,
         ),
@@ -41,7 +50,7 @@ class  HeaderMenu extends StatelessWidget {
           topPosition: 10.0,
           rightPosition:null,
           bottomPosition: null,
-          colorCicle: Color.fromARGB(127,191, 186, 56),
+          colorCicle: Color.fromRGBO(243,219, 195, 61),
           hightCicle: 30.0,
           widhtCircle: 30.0,
         ),

@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:laperla/routes/route.dart';
 void main() {
   
@@ -21,6 +23,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'La Perla',
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        DefaultCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      locale: Locale('es',''),
+      supportedLocales: const <Locale>[
+        Locale('es', ''),
+        Locale('en', ''),
+      ],
       theme: ThemeData(
         fontFamily: 'Roboto',
         primarySwatch: Colors.blue,

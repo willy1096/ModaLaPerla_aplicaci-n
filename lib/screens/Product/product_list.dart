@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:laperla/utilities/utils.dart' as styleSheet;
 import 'package:laperla/widgets/Product_Widget/card_product.dart';
-import 'package:laperla/widgets/drawer_filter.dart';
+// import 'package:laperla/widgets/drawer_filter.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
 class ProductList extends StatefulWidget {
@@ -30,8 +30,8 @@ class _ProductListState extends State<ProductList> {
         backgroundColor: Colors.white,
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: styleSheet.colorDark),
-        title: Text('Shopping Apps',style:TextStyle(color:styleSheet.colorGreen)),
-        centerTitle: false,
+        title: Text('Shopping Apps',style:TextStyle(color:styleSheet.colorPurple)),
+        centerTitle: true,
         elevation: 0,
         actionsIconTheme: IconThemeData(
           color:styleSheet.colorDark,
@@ -62,21 +62,21 @@ class _ProductListState extends State<ProductList> {
                 child: Icon(Icons.view_comfy,color: Colors.grey[400],),
               ),
               SizedBox(width:20),
-               Builder(
-                  builder:(context){
-                    return InkWell(
-                      child:Icon(Icons.filter_list),
-                      onTap:()=> Scaffold.of(context).openEndDrawer(),
-                    );
-                  }
-                ),
-              SizedBox(width:20),
+              //  Builder(
+              //     builder:(context){
+              //       return InkWell(
+              //         child:Icon(Icons.filter_list),
+              //         onTap:()=> Scaffold.of(context).openEndDrawer(),
+              //       );
+              //     }
+              //   ),
+              // SizedBox(width:20),
             ],
           )
         ],
       ),
-      endDrawer:MyEndDrawerFilter(),
-      endDrawerEnableOpenDragGesture: true,
+      // endDrawer:MyEndDrawerFilter(),
+      // endDrawerEnableOpenDragGesture: true,
       
       // drawerScrimColor: Colors.transparent,
       body:SafeArea(
@@ -85,7 +85,7 @@ class _ProductListState extends State<ProductList> {
               Container(
               height: 30,
               child: ListView.builder(
-                itemCount: 30,
+                // itemCount: 30,
                 scrollDirection: Axis.horizontal,
                 physics: BouncingScrollPhysics(),
                 itemBuilder:(context, index) {
@@ -95,10 +95,10 @@ class _ProductListState extends State<ProductList> {
                       elevation: 0,
                       padding: EdgeInsets.symmetric(vertical:0,horizontal:0,),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13.0),
+                        borderRadius: BorderRadius.circular(8.0),
                         // side: BorderSide(color:styleSheet.colorinfo)
                       ),
-                      color: styleSheet.colorPurple,
+                      color: styleSheet.colorGrey,
                       onPressed: (){},
                       child: Text('Categoría $index',style: TextStyle(color:Colors.white,fontWeight: FontWeight.w700,fontFamily:'Roboto',fontSize: 10,)),
                     ),
@@ -125,8 +125,6 @@ class _ProductListState extends State<ProductList> {
                     );
                   }),
                 )
-
-                
               ),
             ),
           ],

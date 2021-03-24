@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laperla/screens/Search/contacto_search.dart';
+import 'package:laperla/utilities/setStatusBar.dart';
 import 'package:laperla/utilities/utils.dart' as styleSheet;
 import 'package:laperla/widgets/appbar.dart';
 import 'package:laperla/widgets/Product_Widget/card_product_slide.dart';
@@ -35,6 +36,7 @@ class _ProductHomeState extends State<ProductHome> {
  
   @override
   void dispose() {
+    getChangeStatusGrey();
     super.dispose();
     _controller.dispose();
   }
@@ -47,46 +49,12 @@ class _ProductHomeState extends State<ProductHome> {
     return Scaffold(
       backgroundColor: styleSheet.colorBackground,
       appBar: appBarAplication(),
-      endDrawer:MyEndDrawerMenu(),
-      endDrawerEnableOpenDragGesture: true,
+      drawer: MyEndDrawerMenu(),
+      drawerEnableOpenDragGesture: true,
+      // endDrawer:MyEndDrawerMenu(),
+      // endDrawerEnableOpenDragGesture: true,
       body:ListView(
         children: <Widget>[
-          
-          //  _style.separadorContainer,
-          // Container(
-          //   margin:_style.marginContainer,
-          //   child: Row(
-          //     children: <Widget>[
-          //       Image.network('https://www.ejemplos.co/wp-content/uploads/2015/11/Logo-Adidas.jpg',width: 100,),
-          //       Flexible(
-          //         child: Column(
-          //           mainAxisAlignment: MainAxisAlignment.start,
-          //           crossAxisAlignment: CrossAxisAlignment.start,
-          //           children: <Widget>[
-          //             RichText(
-          //               text:TextSpan(
-          //                 text:'Hola ',
-          //                 style: TextStyle(color: Colors.black, fontSize: 18,),
-          //                 children:<TextSpan>[
-          //                   TextSpan(text: 'Ni nna',style: TextStyle(color: Colors.black, fontSize: 18,fontWeight: FontWeight.bold),),
-          //                 ]
-          //               )
-          //             ),
-          //             Row(
-          //               children: <Widget>[
-          //                 Flexible(child: Text('Tienes 3 articulos'))
-          //               ],
-          //             )
-          //           ],
-          //         )
-          //       ),
-          //       Padding(
-          //         padding: const EdgeInsets.all(10.0),
-          //         child: Icon(Icons.format_align_center),
-          //       )
-          //     ],
-          //   ),
-          // ),
           styleSheet.separadorContainer,
           GestureDetector(
             onTap: ()async{
@@ -97,7 +65,7 @@ class _ProductHomeState extends State<ProductHome> {
                 },
             child: Container(
               margin:styleSheet.marginContainer,
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius:BorderRadius.circular(
@@ -138,7 +106,7 @@ class _ProductHomeState extends State<ProductHome> {
                       height: netxScroll > (media ) &&  netxScroll < (media + media )   ? 10 :  7,
                       width: netxScroll > (media )  &&  netxScroll < (media + media ) ? 10 :  7,
                       decoration: BoxDecoration(
-                      color:netxScroll >(media) &&  netxScroll < (media + media ) ? styleSheet.colorGreen : Colors.purple,
+                      color:netxScroll >(media) &&  netxScroll < (media + media ) ? styleSheet.colorAmarillo : styleSheet.colorPurple,
                         borderRadius: BorderRadius.circular(50.0)
                       ),
                     ),
@@ -147,7 +115,7 @@ class _ProductHomeState extends State<ProductHome> {
                       height: netxScroll > (media + media )  ? 10 :  7,
                       width: netxScroll >(media + media ) ? 10 : 7,
                       decoration: BoxDecoration(
-                      color:netxScroll >(media + media ) ? styleSheet.colorGreen : Colors.purple,
+                      color:netxScroll >(media + media ) ? styleSheet.colorAmarillo : styleSheet.colorPurple,
                         borderRadius: BorderRadius.circular(50.0)
                       ),
                     ),
@@ -161,7 +129,7 @@ class _ProductHomeState extends State<ProductHome> {
             height: 250,
             child: ListView.builder(
               controller:_controller,
-              itemCount: 30,
+              // itemCount: 30,
               scrollDirection: Axis.horizontal,
                physics: BouncingScrollPhysics(),
               itemBuilder:(context, index) {
@@ -203,7 +171,7 @@ class _ProductHomeState extends State<ProductHome> {
                       height: netxScrolldos > (media ) &&  netxScrolldos < (media + media )   ? 10 :  7,
                       width: netxScrolldos > (media )  &&  netxScrolldos < (media + media ) ? 10 :  7,
                       decoration: BoxDecoration(
-                      color:netxScrolldos >(media) &&  netxScrolldos < (media + media ) ? styleSheet.colorGreen : Colors.purple,
+                      color:netxScrolldos >(media) &&  netxScrolldos < (media + media ) ? styleSheet.colorAmarillo : styleSheet.colorPurple,
                         borderRadius: BorderRadius.circular(50.0)
                       ),
                     ),
@@ -212,7 +180,7 @@ class _ProductHomeState extends State<ProductHome> {
                       height: netxScrolldos > (media + media )  ? 10 :  7,
                       width: netxScrolldos >(media + media ) ? 10 : 7,
                       decoration: BoxDecoration(
-                      color:netxScrolldos >(media + media ) ? styleSheet.colorGreen : Colors.purple,
+                      color:netxScrolldos >(media + media ) ? styleSheet.colorAmarillo : styleSheet.colorPurple,
                         borderRadius: BorderRadius.circular(50.0)
                       ),
                     ),
@@ -226,7 +194,7 @@ class _ProductHomeState extends State<ProductHome> {
             height: 250,
             child: ListView.builder(
               controller:_controllerDos,
-              itemCount: 30,
+              // itemCount: 30,
               scrollDirection: Axis.horizontal,
               //  physics: BouncingScrollPhysics(),
               itemBuilder:(context, index) {

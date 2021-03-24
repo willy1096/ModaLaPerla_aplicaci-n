@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:laperla/utilities/setStatusBar.dart';
@@ -59,7 +60,7 @@ class _WidgetCardProductState extends State<WidgetCardProduct> {
                             child: CircularProgressIndicator(),
                           ),
                           placeholderFadeInDuration: Duration(milliseconds: 1500),
-                           errorWidget: (context, url, error) => Icon(Icons.error,color: Colors.redAccent,),
+                          errorWidget: (context, url, error) => Icon(Icons.error,color: Colors.redAccent,),
                         ),
                       )
                   ),
@@ -73,10 +74,10 @@ class _WidgetCardProductState extends State<WidgetCardProduct> {
                           },
                           child:widget.position%4==0?
                           Icon(
-                            Icons.favorite,color: styleSheet.colorGreen,
+                            Icons.favorite,color: styleSheet.colorPurple,
                           ):
                           Icon(
-                            Icons.favorite_border,color: styleSheet.colorGreen,
+                            Icons.favorite_border,color: styleSheet.colorPurple,
                           )
                         ),
                       )
@@ -86,13 +87,15 @@ class _WidgetCardProductState extends State<WidgetCardProduct> {
                       top: 0,
                       left: 0,
                       child: SizedBox(
-                          child: Container(
-                            padding: EdgeInsets.only(left:5.0,right: 5.0,bottom: 3.0,top:3.0),
-                            decoration: BoxDecoration(
-                              // borderRadius:BorderRadius.circular(10.0),
-                              color: Colors.red
+                          child: FadeInRight(
+                            child: Container(
+                              padding: EdgeInsets.only(left:5.0,right: 5.0,bottom: 3.0,top:3.0),
+                              decoration: BoxDecoration(
+                                // borderRadius:BorderRadius.circular(10.0),
+                                color: styleSheet.colorAmarrillobajo
+                              ),
+                              child: Text('New',style: TextStyle(color:styleSheet.colorLila,fontSize:13,fontWeight: FontWeight.bold),),
                             ),
-                            child: Text('New',style: TextStyle(color:Colors.white,fontSize:13),),
                           ),
                         )
                     ):Container()
@@ -109,9 +112,9 @@ class _WidgetCardProductState extends State<WidgetCardProduct> {
                         children: <Widget>[
                           Row(
                             children: <Widget>[
-                              Icon(Icons.star,color:styleSheet.colorOrange,size: 14,),
-                              Icon(Icons.star,color:styleSheet.colorOrange,size: 14,),
-                              Icon(Icons.star,color:styleSheet.colorOrange,size: 14,),
+                              Icon(Icons.star,color:styleSheet.colorAmarrillobajo,size: 14,),
+                              Icon(Icons.star,color:styleSheet.colorAmarrillobajo,size: 14,),
+                              Icon(Icons.star,color:styleSheet.colorAmarrillobajo,size: 14,),
                               Icon(Icons.star,color:styleSheet.colorGrisbajo,size: 14,),
                               Icon(Icons.star,color:styleSheet.colorGrisbajo,size: 14,),
                             ],
@@ -167,7 +170,7 @@ class _WidgetCardProductState extends State<WidgetCardProduct> {
                     ),
                     SizedBox(width:5),
                     MaterialButton(
-                      color: styleSheet.colorGreen,
+                      color: styleSheet.colorAmarillo,
                       minWidth: 0,
                       padding: EdgeInsets.only(left:10,right:10),
                       height: 25,

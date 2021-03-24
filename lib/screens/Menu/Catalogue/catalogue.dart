@@ -8,7 +8,7 @@ class CatalogueHome extends StatelessWidget {
     'https://cdn.pixabay.com/photo/2017/07/31/11/33/people-2557483_960_720.jpg',
     'https://cdn.pixabay.com/photo/2017/08/06/20/08/people-2595833_960_720.jpg',
     'https://cdn.pixabay.com/photo/2015/09/06/00/46/yellow-926728_960_720.jpg',
-    'https://cdn.pixabay.com/photo/2015/12/08/05/58/ice-skates-1082514_960_720.jpg'
+    'https://cdn.pixabay.com/photo/2015/09/06/00/46/yellow-926728_960_720.jpg',
   ];
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class CatalogueHome extends StatelessWidget {
         iconTheme: IconThemeData(color:styleSheet.colorDark),
         backgroundColor: Colors.white,
         brightness: Brightness.light,
-        title: Text('Shopping Apps',style:TextStyle(color:styleSheet.colorGreen)),
+        title: Text('Shopping Apps',style:TextStyle(color:styleSheet.colorPurple)),
         centerTitle: true,
         elevation: 0,
       ),
@@ -142,7 +142,7 @@ class CardCatalogue extends StatelessWidget{
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                Text(this.name.toUpperCase(),style: TextStyle(fontSize:30,color:  styleSheet.colorGreen,fontWeight: FontWeight.bold ),),
+                Text(this.name.toUpperCase(),style: TextStyle(fontSize:30,color:  styleSheet.colorAmarillo,fontWeight: FontWeight.bold ),),
               ],
             ),
           ),
@@ -172,7 +172,7 @@ class CardCatalogue extends StatelessWidget{
                 ButtonTheme(
                   buttonColor: Colors.yellow,
                   child: MaterialButton(
-                    color:styleSheet.colorGreen,
+                    color:styleSheet.colorAmarillo,
                     onPressed: (){},
                     child: Text('VER PRODUCTOS',style: TextStyle(color:Colors.white),),
                   )
@@ -181,7 +181,7 @@ class CardCatalogue extends StatelessWidget{
                 ButtonTheme(
                   child: MaterialButton(
                     shape:RoundedRectangleBorder(
-                       side: BorderSide(color:styleSheet.colorGreen,width: 2.0)
+                       side: BorderSide(color:styleSheet.colorAmarillo,width: 2.0)
                       // top: BorderSide(color:Color(0xff800DB0)),
                       // bottom: BorderSide(color:Color(0xff800DB0)),
                       // left: BorderSide(color:Color(0xff800DB0)),

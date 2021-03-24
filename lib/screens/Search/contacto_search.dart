@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laperla/services/product_service.dart';
+// import 'package:laperla/services/product_service.dart';
 
 
 class ProductSearchDelegate extends SearchDelegate{
@@ -39,9 +39,9 @@ class ProductSearchDelegate extends SearchDelegate{
         return Center(child: Text('No hay resultados'));
       }
 
-      final contactoSearch = new ProductProvider();
+      // final contactoSearch = new ProductProvider();
       return FutureBuilder(
-        future: contactoSearch.contactoSearch(nombre:query),
+        // future: contactoSearch.(nombre:query),
         builder: (BuildContext context, AsyncSnapshot snapshot){
           if(snapshot.hasData){
             final searchContact = snapshot.data;
@@ -83,11 +83,11 @@ class ProductSearchDelegate extends SearchDelegate{
   Widget _showContact(context, contactoElement,index){
   //  var myProvider = Provider.of<ProductProvider>(context);
     return  Container(
-      child: FlatButton(
-        focusColor: Colors.white,
-        splashColor: Colors.white,
-        color: Colors.white,
-            padding: EdgeInsets.only(top: 8,bottom: 8),
+      child: TextButton(
+        // focusColor: Colors.white,
+        // splashColor: Colors.white,
+        // color: Colors.white,
+        //     padding: EdgeInsets.only(top: 8,bottom: 8),
             onPressed: (){
               // myProvider.chageElement(element:contactoElement.id);
               Navigator.pushNamed(context, '/contacto-detalle',arguments:contactoElement.id);

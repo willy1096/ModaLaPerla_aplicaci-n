@@ -99,7 +99,7 @@ class _MyEndDrawerFilterState extends State<MyEndDrawerFilter> {
                           child: Text('5',style: TextStyle(color:Colors.white,fontFamily:'Montserrat',fontWeight: FontWeight.w700,fontSize: 12)),
                         ),
                         MaterialButton(
-                          color: styleSheet.colorGreen,
+                          color: styleSheet.colorAmarillo,
                           minWidth: 0,
                           padding: EdgeInsets.only(left:10,right:10),
                           height: 30,
@@ -107,7 +107,7 @@ class _MyEndDrawerFilterState extends State<MyEndDrawerFilter> {
                           child: Text('6',style: TextStyle(color:Colors.white,fontFamily:'Montserrat',fontWeight: FontWeight.w700,fontSize: 12)),
                         ),
                         MaterialButton(
-                          color: styleSheet.colorGreen,
+                          color: styleSheet.colorAmarillo,
                           minWidth: 0,
                           padding: EdgeInsets.only(left:10,right:10),
                           height: 30,
@@ -115,7 +115,7 @@ class _MyEndDrawerFilterState extends State<MyEndDrawerFilter> {
                           child: Text('7',style: TextStyle(color:Colors.white,fontFamily:'Montserrat',fontWeight: FontWeight.w700,fontSize: 12)),
                         ),
                         MaterialButton(
-                          color: styleSheet.colorGreen,
+                          color: styleSheet.colorAmarillo,
                           minWidth: 0,
                           padding: EdgeInsets.only(left:10,right:10),
                           height: 30,

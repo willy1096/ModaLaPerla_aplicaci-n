@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:laperla/utilities/setStatusBar.dart';
 import 'package:laperla/utilities/utils.dart' as styleSheet;
 class MyEndDrawerMenu extends StatefulWidget {
   @override
@@ -29,14 +30,7 @@ class _MyEndDrawerMenuState extends State<MyEndDrawerMenu> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        // Row(
-                        //   children: <Widget>[
-                        //     Padding(
-                        //       padding: const EdgeInsets.only(top:10,left:10.0),
-                        //       child: Text('Menú',style: TextStyle(fontSize:20),),
-                        //     ),
-                        //   ],
-                        // ),
+                       
                         Row(
                           children: <Widget>[
                             Container(
@@ -92,35 +86,36 @@ class _MyEndDrawerMenuState extends State<MyEndDrawerMenu> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
+                             
                               _gestureDetectorRoute(
                                 icon:Icons.book,
                                 title: 'Catalogo',
-                                onTapRoute: ()=> Navigator.pushNamed(context, 'catalogueHome')
+                                routeName:'catalogueHome'
                               ),
                               _gestureDetectorRoute(
                                 icon:Icons.favorite,
                                 title: 'Favoritos',
-                                onTapRoute: ()=> Navigator.pushNamed(context, 'menuFavorite')
+                                routeName: 'menuFavorite',
                               ),
                               _gestureDetectorRoute(
                                 icon:Icons.notifications_active,
                                 title: 'Notificaciones',
-                                onTapRoute: ()=> Navigator.pushNamed(context, 'payOrder')
+                                routeName:  'menuNotification',
                               ),
                               _gestureDetectorRoute(
                                 icon:Icons.shopping_cart,
                                 title: 'Mi carrito',
-                                onTapRoute: ()=> Navigator.pushNamed(context, 'payOrder')
+                                routeName: 'payOrder'
                               ),
                               _gestureDetectorRoute(
                                 icon:Icons.account_box,
                                 title: 'Cuenta',
-                                onTapRoute: ()=> Navigator.pushNamed(context, 'login')
+                                routeName: 'login'
                               ),
                               _gestureDetectorRoute(
                                 icon:Icons.settings_applications,
                                 title: 'Configuraciones',
-                                onTapRoute: ()=> Navigator.pushNamed(context, 'menuSettings')
+                                routeName:'menuSettings'
                               ),
                                   
                             ],
@@ -165,11 +160,14 @@ class _MyEndDrawerMenuState extends State<MyEndDrawerMenu> {
     );
   }
 
-  Widget _gestureDetectorRoute({Function onTapRoute, String title,IconData icon }){
+  Widget _gestureDetectorRoute({String routeName, String title,IconData icon }){
     return  InkWell(
       splashColor: Colors.white,
       highlightColor: Colors.white24  ,
-      onTap:onTapRoute ,
+      onTap:(){
+        Navigator.pushNamed(context, '$routeName');
+        getChangeStatusTransparent();
+      } ,
       child:Padding(
         padding:_padding,
         child: Row(

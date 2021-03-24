@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:laperla/utilities/utils.dart' as styleSheet;
 import 'package:laperla/widgets/Product_Widget/listTitle_comment_product.dart';
@@ -29,35 +30,33 @@ class _DetailProductBuyState extends State<DetailProductBuy> {
               text: 'Estimación de entrega',
               style: TextStyle(color:styleSheet.colorGrey),
               children: <TextSpan>[
-                TextSpan(text: ' 10', style: TextStyle(color:styleSheet.colorGreen,fontWeight: FontWeight.bold)),
-                TextSpan(text: ' días',style: TextStyle(color:styleSheet.colorGreen,fontWeight: FontWeight.bold)),
+                TextSpan(text: ' 10', style: TextStyle(color:styleSheet.colorAmarillo,fontWeight: FontWeight.bold)),
+                TextSpan(text: ' días',style: TextStyle(color:styleSheet.colorAmarillo,fontWeight: FontWeight.bold)),
               ],
             ),
           )
         ),
-        GestureDetector(
-          onTap: ()=>_showMaterialModalBottomSheet(context),
-          child: Container(
-            width:double.infinity,
+         Container(
+          width:double.infinity,
+          margin: EdgeInsets.all(10),
+          padding: EdgeInsets.all(0),
+          decoration: BoxDecoration(
+            color:Colors.white,
+            boxShadow: [
+              styleSheet.boxShadowCards
+            ],
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child:MaterialButton(
             padding: EdgeInsets.all(13),
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: styleSheet.colorinfo.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(10),
-              border:Border.all(
-                width: 2.0,
-                color: styleSheet.colorinfoblue.withOpacity(0.3),
-              )
-            ),
-            child:Container(
-              child: Column(
-                children: <Widget>[
-                  itemSelecCantidad == null ?
-                  Text("Seleccionar cantidad")
-                  :
-                  Text("$itemSelecCantidadText"),
-                ],
-              ),
+            onPressed: ()=>_showMaterialModalBottomSheet(context),
+            child: Column(
+              children: <Widget>[
+                itemSelecCantidad == null ?
+                Text("Seleccionar cantidad",style: TextStyle(color: styleSheet.colorDark,fontWeight: FontWeight.w600),)
+                :
+                Text("$itemSelecCantidadText",style: TextStyle(color: styleSheet.colorDark,fontWeight: FontWeight.w600)),
+              ],
             ),
           ),
         ),
@@ -78,7 +77,7 @@ class _DetailProductBuyState extends State<DetailProductBuy> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 MaterialButton(
-                  color: styleSheet.colorGreen,
+                  color: styleSheet.colorPurple,
                   minWidth: 0,
                   padding: EdgeInsets.only(left:50,right:50,),
                   height: 40,
@@ -97,7 +96,7 @@ class _DetailProductBuyState extends State<DetailProductBuy> {
           child: Text(
             'Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.',
               style: TextStyle(
-                color:styleSheet.colorGreyStrong,
+                color:styleSheet.colorGrey,
                 fontWeight: FontWeight.w400,
                 fontSize: 16,
                 fontFamily: 'Roboto',
@@ -108,7 +107,7 @@ class _DetailProductBuyState extends State<DetailProductBuy> {
         SizedBox(height:30),
        
         Container(
-          height: MediaQuery.of(context).size.height*0.6,
+          height: MediaQuery.of(context).size.height*0.55,
           child:Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -128,33 +127,34 @@ class _DetailProductBuyState extends State<DetailProductBuy> {
                     );
                   }
               ),
-              GestureDetector(
-                onTap: ()=>Navigator.pushNamed(context, 'productComment'),
-                child: Container(
-                  width: double.infinity,
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.all(0),
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color:Colors.white,
+                  boxShadow: [
+                    styleSheet.boxShadowCards
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child:MaterialButton(
                   padding: EdgeInsets.all(13),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: styleSheet.colorinfo.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(10),
-                    border:Border.all(
-                      width: 2.0,
-                      color: styleSheet.colorinfoblue.withOpacity(0.3),
-                    )
-                  ),
-                  child:Container(
-                    child: Column(
-                      children: <Widget>[
-                        Text('Ver Comentarios'),
-                      ],
-                    ),
+                  onPressed: ()=>Navigator.pushNamed(context, 'productComment'),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Expanded(child: Text('Ver Comentarios',style: TextStyle(color: styleSheet.colorDark,fontWeight: FontWeight.w600,),textAlign: TextAlign.center,)),
+                      Icon(Icons.keyboard_arrow_right_sharp)
+                    ],
                   ),
                 ),
               ),
+              
             ],
           ),
         ),
-        SizedBox(height:10),
+        SizedBox(height:1),
       ],
     );
   }
@@ -164,13 +164,22 @@ class _DetailProductBuyState extends State<DetailProductBuy> {
       child: Text('$title',style:TextStyle(color:styleSheet.colorDark,fontWeight: FontWeight.w700,fontSize:14,fontFamily: 'Roboto'))
     );
   }
-  Future  _showMaterialModalBottomSheet(context){
+  Future _showMaterialModalBottomSheet(context){
     String _unidad = 'Unidades';
     return showModalBottomSheet(
       context: context,
-      builder: (BuildContext bc){
+      backgroundColor: Colors.transparent,
+      barrierColor: Colors.black.withOpacity(0.2),
+      
+      builder: (BuildContext bc,){
         return Container(
-          child: ListView.builder(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
+              color:Colors.white,
+          ),
+          child: ListView.separated(
+            physics: BouncingScrollPhysics(),
+            separatorBuilder: (context, index) => Divider(color: styleSheet.colorDivider,endIndent: 100,indent: 100,),
             itemCount: 10,
             itemBuilder:(context, int i){
               int unidad = i;
@@ -180,15 +189,17 @@ class _DetailProductBuyState extends State<DetailProductBuy> {
                   alignment: WrapAlignment.center,
                     children: <Widget>[
                     new ListTile(
+                      horizontalTitleGap: 0,
+                      dense: true,
                       title:i==0?Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text('$unidad Unidad'),
+                          Text('$unidad Unidad',style: TextStyle(color:styleSheet.colorDark,fontWeight: FontWeight.w600),),
                         ],
                       ):Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text('$unidad $_unidad'),
+                          Text('$unidad $_unidad',style: TextStyle(color:styleSheet.colorDark,fontWeight: FontWeight.w600)),
 
                         ],
                       ),
@@ -207,7 +218,9 @@ class _DetailProductBuyState extends State<DetailProductBuy> {
         );
       }
     );
+   
   }
+
 
    Widget _itemSize({@required String sizeitem}){
      return ListView.builder(
@@ -229,7 +242,7 @@ class _DetailProductBuyState extends State<DetailProductBuy> {
                 margin: EdgeInsets.only(right:8),
                 child:Text('$i',style:TextStyle(color:itemSelect==i?Colors.white:Color(0xffBCBEC0),fontWeight: FontWeight.w700,fontFamily: 'Montserrat'),textAlign: TextAlign.center,),
                 decoration: BoxDecoration(
-                  color: itemSelect==i ? styleSheet.colorGreen : Color.fromARGB(70,179,179,179),
+                  color: itemSelect==i ? styleSheet.colorPurple : Color.fromARGB(70,179,179,179),
                   borderRadius: BorderRadius.circular(0)
                 ),
             ),

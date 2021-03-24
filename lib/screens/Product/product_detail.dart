@@ -1,6 +1,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:laperla/utilities/utils.dart' as styleSheet;
 import 'package:laperla/widgets/Product_Widget/card_product_buy_detail.dart';
@@ -21,15 +22,14 @@ class _ProductDetailState extends State<ProductDetail>  {
     getChangeStatus();
   }
   void getChangeStatus(){
-      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.white, // navigation bar color
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark, // status bar icons' color
-        systemNavigationBarIconBrightness: Brightness.dark,
-        statusBarBrightness: Brightness.light,
-      ));  
-    }
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+  }
    
+   @override
+  void dispose() {
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
+    super.dispose();
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class _ProductDetailState extends State<ProductDetail>  {
                         // )),
                         InkWell(
                           onTap:()=> Navigator.pushNamed(context, 'productSlider'),
-                          child: Icon(Icons.photo_library,color:Colors.grey[400])
+                          child: Icon(Icons.photo_library,color:Colors.grey[400],size: 15,)
                         )
                       ]
                     )
@@ -90,7 +90,7 @@ class _ProductDetailState extends State<ProductDetail>  {
                           options: CarouselOptions(
                             height: 350.0,
                             aspectRatio: 16/9,
-                            viewportFraction: 1,
+                            viewportFraction: 1.0,
                             initialPage: 0,
                             enableInfiniteScroll: true,
                             scrollPhysics: ScrollPhysics(),
@@ -101,12 +101,13 @@ class _ProductDetailState extends State<ProductDetail>  {
                             },
                             reverse: false,
                             autoPlay: false,
-                            autoPlayInterval: Duration(seconds: 3),
-                            autoPlayAnimationDuration: Duration(milliseconds: 800),
-                            autoPlayCurve: Curves.fastOutSlowIn,
+                            autoPlayInterval: Duration(seconds: 2),
+                            autoPlayAnimationDuration: Duration(milliseconds: 2),
+                            autoPlayCurve: Curves.ease,
                             scrollDirection: Axis.horizontal,
                             pageSnapping: true,
                             enlargeCenterPage: true
+
                           ),
                           itemCount: items.length,
                           itemBuilder:(context, index, realIndex) =>Image.network(
@@ -115,19 +116,7 @@ class _ProductDetailState extends State<ProductDetail>  {
                             width: double.infinity,
                           ),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(top:40,left: 10,right: 10),
-                          child: SizedBox(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: <Widget>[
-                                    // Icon(Icons.arrow_back),
-                                    Icon(Icons.menu)
-                                ],
-                              ),
-                            )
-                        ),
+                       
                         Container(
                           margin: EdgeInsets.only(bottom:20,left: 10,right: 10),
                           child: SizedBox(
@@ -155,6 +144,7 @@ class _ProductDetailState extends State<ProductDetail>  {
                   )
                 ])
               ),
+              
               SliverList(
                  delegate: SliverChildListDelegate([
                   SingleChildScrollView(
@@ -166,6 +156,7 @@ class _ProductDetailState extends State<ProductDetail>  {
                           child: Text('Más productos',style:TextStyle(color:styleSheet.colorDark,fontWeight: FontWeight.w700,fontSize: 20,fontFamily: 'Montserrat'))
                         ),
                         DetailProductDescription(),
+                        SizedBox(height:60)
                       ],
                     )
                   )
@@ -186,7 +177,18 @@ class _ProductDetailState extends State<ProductDetail>  {
             // ),
         ],
 
-          )
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: styleSheet.colorAmarillo,
+          mini: true,
+          onPressed:(){
+
+          },
+          child: Icon(
+            Icons.shopping_cart_outlined,
+
+          ),
+        ),
       
     );
   }

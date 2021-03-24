@@ -1,29 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:laperla/utilities/setStatusBar.dart';
 import 'package:laperla/utilities/utils.dart' as styleSheet;
 class Login extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _LoginState createState() => _LoginState();  
 }
 
 class _LoginState extends State<Login> {
   bool _lockpassword = true;
     
+
+  @override
+  void initState() {
+    getChangeStatusLila();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    getChangeStatusGrey();
+    super.dispose();
+  }
+ 
   @override
   Widget build(BuildContext context) {
     final _node = FocusScope.of(context);
-    final double _mediaQueryHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: styleSheet.colorBackground,
-      appBar: AppBar(
-        brightness: Brightness.light,
-        backgroundColor:styleSheet.colorBackground,
-        elevation: 0,
-        title: Text('',style:TextStyle(color:styleSheet.colorDark)),
-      ),
+      backgroundColor:styleSheet.colorLila,
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color:styleSheet.colorBackground,
+        color:styleSheet.colorLila,
         child: SafeArea(
           child: Form(
             child: SingleChildScrollView(
@@ -33,34 +40,41 @@ class _LoginState extends State<Login> {
               children: <Widget>[
                   SizedBox(height:50),
                   Container(
-                    child: Image.network(
-                      'https://cdn11.bigcommerce.com/s-dqc1opj0ki/images/stencil/500x200/laperla2x_1583857066__43645.original.png',
+                    child: Image.asset(
+                      'assets/Logo_La_Perla-w.png',
                       width: 200,
                     ),
                   ),
-                  SizedBox(height:_mediaQueryHeight*.18),
+                  // SizedBox(height:_mediaQueryHeight*.2),
                   Container(
                     child: Column(
                       children: <Widget>[
                         Container(
                           margin: EdgeInsets.all(20),
                           child: TextFormField(
-                            style: TextStyle(color:Color.fromRGBO(157, 165, 179, 1), fontWeight:FontWeight.w400),
+                              style: TextStyle(color:Color.fromRGBO(157, 165, 179, 1), fontWeight:FontWeight.w400),
                               obscureText: false,
                               keyboardType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
                               onEditingComplete: () => _node.nextFocus(),
                               decoration: InputDecoration(
                                 hintText: 'Correo',
-                                hintStyle: TextStyle(color:Color(0xff636E7E),fontWeight:FontWeight.bold),
-                                prefixIcon: Icon(Icons.email),
-                                // suffixIcon: Icon(Icons.dehaze),
+                                hintStyle: TextStyle(color:Color(0xff636E7E),fontWeight:FontWeight.w500),
+                                prefixIcon: Icon(Icons.email,color: Color(0xff636E7E),),
                                 fillColor: Colors.white,
                                 filled: true,
                                 border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff979797),width: 1.0),
+                                  borderSide: BorderSide(color: Color(0xffE8E8E8),width: 1.0),
                                   borderRadius: BorderRadius.circular(10)
-                                )
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white,width: 1.0),
+                                  borderRadius: BorderRadius.circular(10)
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: styleSheet.colorPurple,width: 1.0),
+                                  borderRadius: BorderRadius.circular(10)
+                                ),
                               ),
                           ),
                         ),
@@ -78,8 +92,8 @@ class _LoginState extends State<Login> {
                             onEditingComplete: () => _node.nextFocus(),
                             decoration: InputDecoration(
                               hintText:'Contraseña',
-                              hintStyle:TextStyle(color:Color(0xff636E7E),fontWeight:FontWeight.bold),
-                              prefixIcon:Icon(Icons.lock),
+                              hintStyle:TextStyle(color:Color(0xff636E7E),fontWeight:FontWeight.w500),
+                              prefixIcon:Icon(Icons.lock,color: Color(0xff636E7E),),
                               suffixIcon:GestureDetector(
                                 onTap: (){
                                     if(_lockpassword==true){
@@ -89,14 +103,22 @@ class _LoginState extends State<Login> {
                                       setState(() => _lockpassword = true );
                                     }
                                 },
-                                child: Icon(Icons.remove_red_eye,color: Colors.black,)
+                                child: Icon(Icons.remove_red_eye,color:styleSheet.colorAmarillo,)
                               ),
                               fillColor: Colors.white,
                               filled: true,
                               border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff979797),width: 1.0),
+                                borderSide: BorderSide(color: Color(0xffE8E8E8),width: 1.0),
                                 borderRadius: BorderRadius.circular(10)
-                              )
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white,width: 1.0),
+                                borderRadius: BorderRadius.circular(10)
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: styleSheet.colorPurple,width: 1.0),
+                                borderRadius: BorderRadius.circular(10)
+                              ),
                             ),
                           ), 
                         ),
@@ -105,16 +127,18 @@ class _LoginState extends State<Login> {
                   ),
                   SizedBox(height:40),
                   MaterialButton(
-                    elevation: 1,
-                    padding: EdgeInsets.all(16),
-                    color: Colors.white,
-                    height: 30,
+                    elevation: 0,
+                    padding: EdgeInsets.all(18),
+                    color:Colors.white,
                     minWidth: MediaQuery.of(context).size.width/1.2,
+                    shape: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white,width: 1.0),
+                        borderRadius: BorderRadius.circular(10),
+                    ),
                     onPressed: (){
-                      // Navigator.pushReplacementNamed(context, 'navigatorHome');
                       Navigator.of(context).pushNamedAndRemoveUntil('navigatorHome', (Route<dynamic> route) => false);
                     },
-                    child: Text('Iniciar Sesión'),
+                    child: Text('Iniciar Sesión',style: TextStyle(color: styleSheet.colorDark,fontWeight: FontWeight.bold),),
                   ),
                   SizedBox(height:100),
                   GestureDetector(
@@ -125,9 +149,9 @@ class _LoginState extends State<Login> {
                       child: RichText(
                         text: TextSpan(
                           text: ' ¿No tienes una cuenta? ',
-                          style: TextStyle(color:styleSheet.colorDark,fontWeight: FontWeight.bold),
+                          style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold),
                           children: <TextSpan>[
-                            TextSpan(text: '¡Regístrate!', style: TextStyle(color:styleSheet.colorGreen ,fontWeight: FontWeight.bold)),
+                            TextSpan(text: '¡Regístrate!', style: TextStyle(color:styleSheet.colorAmarillo ,fontWeight: FontWeight.bold)),
                           ],
                         ),
                       ),

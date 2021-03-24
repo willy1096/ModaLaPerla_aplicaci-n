@@ -6,6 +6,8 @@ class CardMenuProduct extends StatelessWidget {
   final double marginbutton;
   final double radiusTop;
   final double radiusbutton;
+  final double marginleft;
+  final double marginright;
   final int index;
   final int ultimoitem;
   final bool active;
@@ -16,7 +18,9 @@ class CardMenuProduct extends StatelessWidget {
     @required this.radiusbutton,
     this.index = 0,
     this.ultimoitem = 0,
-    this.active = false
+    this.active = false,
+    this.marginleft = 10.0,
+    this.marginright = 10.0
   });
   @override
   Widget build(BuildContext context) {
@@ -38,14 +42,14 @@ class CardMenuProduct extends StatelessWidget {
            
         ]
       ),
-      margin: EdgeInsets.only(bottom:ultimoitem==index?150:marginbutton,left: 20,right: 20),
+      margin: EdgeInsets.only(bottom:ultimoitem==index?100:marginbutton,left: marginleft,right:marginright),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
             width: 90,
-            height:130,
+            height:125,
             child: Column(
               children: <Widget>[
                 Container(
@@ -53,11 +57,11 @@ class CardMenuProduct extends StatelessWidget {
                   child: CachedNetworkImage(
                     imageUrl:'https://ss237.liverpool.com.mx/xl/1072879601.jpg',
                     fit: BoxFit.cover,
-                    height: 100,
+                    height: 90,
                   ),
                 ),
                 Container(
-                  child: Text('\$170.50MXN ',style: TextStyle(color:styleSheet.colorGreyStrong,fontSize: 14),)
+                  child: Text('\$170.50MXN ',style: TextStyle(color:styleSheet.colorLila,fontSize: 14),)
                 ),
               ],
             ),
@@ -73,29 +77,32 @@ class CardMenuProduct extends StatelessWidget {
               SizedBox(height:10),
               Row(
                 children: <Widget>[
-                  Text('Tenis ',style: TextStyle(color:styleSheet.colorGreyStrong,fontSize: 18),),
+                  Text('Tenis ',style: TextStyle(color:styleSheet.colorLila,fontSize: 14),),
                   
                 ],
               ),
-              SizedBox(height:10),
-              Text('Talla  ',style: TextStyle(color:styleSheet.colorDark,fontSize: 18),),
+              SizedBox(height:5),
+              Text('Talla  ',style: TextStyle(color:styleSheet.colorDark,fontSize: 14),),
               SizedBox(height:10),
               Row(
                 children: <Widget>[
-                  Icon(Icons.star,color: styleSheet.colorGreen,size: 15,),
-                  Icon(Icons.star,color: styleSheet.colorGreen,size: 15,),
-                  Icon(Icons.star,color: styleSheet.colorGreen,size: 15,),
-                  Icon(Icons.star,color: styleSheet.colorGreen,size: 15,),
-                  Icon(Icons.star,color: styleSheet.colorGreen,size: 15,),
-                  Icon(Icons.star,color: styleSheet.colorGreen,size: 15,),
+                  Icon(Icons.star,color: styleSheet.colorAmarrillobajo,size: 15,),
+                  Icon(Icons.star,color: styleSheet.colorAmarrillobajo,size: 15,),
+                  Icon(Icons.star,color: styleSheet.colorAmarrillobajo,size: 15,),
+                  Icon(Icons.star,color: styleSheet.colorAmarrillobajo,size: 15,),
+                  Icon(Icons.star,color: styleSheet.colorAmarrillobajo,size: 15,),
+                  Icon(Icons.star,color: styleSheet.colorAmarrillobajo,size: 15,),
                 ],
               )
             ],
           ),
           Expanded(child:Container()),
           GestureDetector(
-            child:Icon(Icons.favorite,color: styleSheet.colorRed,size: 30,)
-          )
+            child:Icon(Icons.favorite,color: styleSheet.colorPurple,size: 30,)
+          ),
+          ultimoitem==index-1?
+          SizedBox(height:50)
+          :Container()
         ],
       ),
     );
